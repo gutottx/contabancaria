@@ -1,6 +1,7 @@
 package conta;
-
 import conta.model.Conta;
+import conta.model.ContaCorrente;
+import conta.model.ContaPoupanca;
 import conta.util.Cores;
 import java.util.Scanner;
 
@@ -8,17 +9,23 @@ public class Menu {
 
 	public static void main(String[] args) {
 
-		Conta c1 = new Conta(1071, 0001, 1, "João Ninguém", 2500.0f);
-		Conta c2 = new Conta(1072, 0001, 1, "Fulano", 2140.0f);
-
-		c1.setSaldo(500.0f);
-		c2.setSaldo(4000.0f);
-		System.out.println("Nome do Titular: " + c1.getTitular());
-		System.out.println("Saldo da Conta: " + c1.getSaldo());
-
-		System.out.println("Saldo da Conta: " + c2.getTitular());
-		System.out.println("Saldo da Conta: " + c2.getSaldo());
-
+		// Classe Filha de Conta - Mesmas caracteristicas da Conta, mas add novos Métodos e Atributos
+		ContaCorrente cc1 = new ContaCorrente(123457, 123,2, "João santos",2500.0f, 1000f);
+		cc1.visualizar();
+		cc1.sacar(2000.0f);
+		cc1.visualizar();
+		cc1.depositar(5000.0f);
+		cc1.visualizar();
+		
+		
+		ContaPoupanca cp1 = new ContaPoupanca(1,123,2, "maria dos santos", 100000.0f,15);
+		cp1.visualizar();
+		cp1.sacar(2000.0f);
+		cp1.visualizar();
+		cp1.depositar(5000.0f);
+		cp1.visualizar();
+		
+		
 		Scanner input = new Scanner(System.in);
 
 		int option;
